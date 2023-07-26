@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { VictoryChart, VictoryLine, VictoryTheme } from 'victory';
+import D3InputGraph from '../D3InputGraph';
 
 const UserPedalInputs = () => {
   const [ currentController, setCurrentController ] = useState(null)
@@ -54,10 +54,9 @@ const UserPedalInputs = () => {
       <div>brake: {brake.toFixed(2)}%</div>
       <div>throttle: {throttle.toFixed(2)}%</div>
       <div>steering: {steering.toFixed(2)}%</div>
-      <VictoryChart theme={VictoryTheme.material} scale={{ x: "time" }}>
-        <VictoryLine data={data.throttle} style={{ data: { stroke: "red" }}}/>
-        <VictoryLine data={data.brake} style={{ data: { stroke: "blue" }}}/>
-      </VictoryChart>
+      {data.throttle.length > 0 && data.brake.length > 0 && (
+        <D3InputGraph datasets={[data.throttle, data.brake]} />
+      )}
     </div>
   )
 }
