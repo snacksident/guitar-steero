@@ -1,4 +1,6 @@
 import UserPedalInputs from './components/UserPedalInputs';
+import ControllerConfig from './components/ControllerConfig';
+import ControllerReadout from './components/ControllerReadout';
 
 function App() {
   return (
@@ -7,7 +9,9 @@ function App() {
         <h1>Guitar Steero</h1>
       </header>
       <section>
-        <UserPedalInputs />
+        {/* <UserPedalInputs /> */}
+        <ControllerConfig />
+        <ControllerReadout />
       </section>
     </div>
   );
